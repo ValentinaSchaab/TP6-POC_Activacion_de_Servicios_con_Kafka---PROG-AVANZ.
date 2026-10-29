@@ -1,0 +1,23 @@
+{
+  "name": "@poc/kafka-toolkit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cliente Kafka aislado + idempotencia, reintentos, DLQ y publicaci\u00f3n de eventos",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.0.0",
+    "@poc/contracts": "workspace:*",
+    "kafkajs": "^2.2.4",
+    "mongodb": "^6.10.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "~5.9.0"
+  }
+}

@@ -1,0 +1,19 @@
+# Demo UI (React + Vite). Contexto de build: la RAÍZ del repo.
+FROM node:22-slim
+RUN npm install -g pnpm@10
+WORKDIR /repo
+
+COPY package.json pnpm-workspace.yaml tsconfig.base.json ./
+COPY libs ./libs
+COPY apps ./apps
+RUN pnpm install
+
+# Estas URLs las usa el NAVEGADOR (en tu máquina), por eso apuntan a localhost.
+ARG VITE_API_URL=http://localhost:3000
+ARG VITE_KAFKA_UI_URL=http://localhost:8080
+ARG VITE_MAILHOG_URL=http://localhost:8025
+ENV VITE_API_URL=${VITE_API_URL} VITE_KAFKA_UI_URL=${VITE_KAFKA_UI_URL} VITE_MAILHOG_URL=${VITE_MAILHOG_URL}
+RUN pnpm --filter @poc/demo-ui build
+
+EXPOSE 5173
+CMD ["pnpm", "--filter", "@poc/demo-ui", "start"]

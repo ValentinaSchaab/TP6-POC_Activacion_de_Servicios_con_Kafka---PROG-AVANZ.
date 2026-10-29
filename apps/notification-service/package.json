@@ -1,0 +1,27 @@
+{
+  "name": "@poc/notification-service",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Email de bienvenida o de error (Mailhog)",
+  "scripts": {
+    "build": "nest build",
+    "start": "node dist/main",
+    "start:dev": "nest start --watch"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.0.0",
+    "@nestjs/core": "^11.0.0",
+    "@poc/contracts": "workspace:*",
+    "@poc/kafka-toolkit": "workspace:*",
+    "mongodb": "^6.10.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1",
+    "nodemailer": "^6.9.16"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^11.0.0",
+    "@types/node": "^22.10.0",
+    "typescript": "~5.9.0",
+    "@types/nodemailer": "^6.4.17"
+  }
+}
